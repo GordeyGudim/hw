@@ -37,6 +37,7 @@ while n > 0:
         t0+=0.25    
     else:
         print('нет')
+        break
 if m < m+m*(p/100):
     print('да')
 else:
