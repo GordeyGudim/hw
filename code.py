@@ -16,6 +16,8 @@ for i in n2:
     s2+=int(i)
 if s1 == s2:
     print('достался')
+else:
+    print('не достался')
 
 #винни пух
 n1 = int(input()) #мед
