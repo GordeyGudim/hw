@@ -1,50 +1,76 @@
-#кролик
-n = int(input()) #стоимость одного пакетика
-s = int(input()) #площадь огорода (м**2)
-res = n*s
-print(res)
+import math
+#ticket
+n = input('ticket')
+lst1 = [int(i) for i in n[0:3]]
+lst2 = [int(i) for i in n[3:]]
+print(sum(lst1)==sum(lst2))
 
-#пятачок
-n = input() #номер билета
-n1 = n[0:3]
-n2 = n[3:]
-s1 = 0
-s2 = 0
-for i in n1:
-    s1+=int(i)
-for i in n2:
-    s2+=int(i)
-if s1 == s2:
-    print('достался')
+#point a
+
+print(float(input('y'))<1)
+
+#point б
+x = float(input('x'))
+y = float(input('y'))
+if x < 0 and y < 0:
+    print(True)
+elif x < 0 and y > 0:
+    print(y<x*-1)
+elif x > 0 and y < 0:
+    print(y*-1>x)
 else:
-    print('не достался')
+    print(False)
 
-#винни пух
-n1 = int(input()) #мед
-n2 = int(input()) #сгущека
-n3 = int(input()) #варенье
-p = int(input()) #толстение
-m = int(input()) #вес
-m2 = int(input()) #набор веса
-t0 = 0 #часы чая
-t = 15 #часы
-n = n1 + n2 + n3
 
-while n > 0:
-    if t0 < t:
-        n-=0.5
-        m+=m2
-        t0+=0.25    
+#point в
+x = float(input('x'))
+y = float(input('y'))
+print(x<1 and x>-1 and y<1 and y>-1)
+
+#point д
+x = float(input('x'))
+y = float(input('y'))
+if x > 0 and y > 0:
+    if (x**2 + y**2) > 4:
+        if y < x and x < 2:
+            print(True)
+        else:
+            print(False)
     else:
-        print('нет')
-        break
-if m < m+m*(p/100):
-    print('да')
+        print(False)
 else:
-    print('нет')
-
-    
+    print(False)
 
 
-     
-    
+#point г
+x = float(input('x'))
+y = float(input('y'))
+print((x**2)+(y**2)>4 and x<2 and x > 0 and y<2 and y>0)
+
+#point ж
+x = float(input('x'))
+y = float(input('y'))
+n = math.sqrt(2)
+if x < 0 and y > 0:
+    if y < 2-x**2:
+        print(True)
+elif y < 0 and x < 0:
+    if y > x and y < 2-x**2:
+        print(True)
+
+if x <= 0 and x > n*-1:
+    if y < 2-x**2 and y > x:
+        print(True)
+elif x > 0 and x < n:
+    if y < 2-x**2 and y > 0:
+        print(True)
+else:
+    print(False)
+
+#point e
+x = float(input('x'))
+y = float(input('y'))
+print(y>0 and x>0 and y<0.5 and y<math.sin((x*math.pi)/180))
+
+
+
