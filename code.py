@@ -1,76 +1,68 @@
+#квадратное уравниение
 import math
-#ticket
-n = input('ticket')
-lst1 = [int(i) for i in n[0:3]]
-lst2 = [int(i) for i in n[3:]]
-print(sum(lst1)==sum(lst2))
 
-#point a
+a,b,c = list(map(int, input('Enter a, b, c with space: ').split(' ')))
 
-print(float(input('y'))<1)
-
-#point б
-x = float(input('x'))
-y = float(input('y'))
-if x < 0 and y < 0:
-    print(True)
-elif x < 0 and y > 0:
-    print(y<x*-1)
-elif x > 0 and y < 0:
-    print(y*-1>x)
-else:
-    print(False)
-
-
-#point в
-x = float(input('x'))
-y = float(input('y'))
-print(x<1 and x>-1 and y<1 and y>-1)
-
-#point д
-x = float(input('x'))
-y = float(input('y'))
-if x > 0 and y > 0:
-    if (x**2 + y**2) > 4:
-        if y < x and x < 2:
-            print(True)
+D = (b**2)-(4*a*c)
+if D >= 0:
+    #стандартный вид
+    if [a, b, c] != [0, 0, 0]:
+        #сумма к. равна 0
+        if (a+b+c) == 0:
+            x1 = 1
+            x2 = c/a
+            print(set((x1, x2)))
+        #сумма крайних к. равна среднему к.
+        elif (a+c) == b:
+            x1 = -1
+            x2 = (-1)*(c/a)
+            print(set((x1, x2)))
+        #D=0
+        elif D == 0:
+            x1 = (b*(-1))/(2*a)
+            print({x1})
+        #b четный
+        elif b%2 == 0:
+            D = ((b//2)**2) - (a*c)
+            x1 = ((-1)*(b//2) + math.sqrt(D))/a
+            x2 = ((-1)*(b//2) - math.sqrt(D))/a
+            print(set((x1, x2)))
+        #общий случай
         else:
-            print(False)
-    else:
-        print(False)
+            x1 = ((-1)*b + math.sqrt(D))/(2*a)
+            x2 = ((-1)*b - math.sqrt(D))/(2*a)
+            print(set((x1, x2)))
+    #a,b,c = 0,0,0
+    elif [a,b,c] == [0,0,0]:
+        print('x ∈ R')
+    #a,b,c = 0, not0, not 0
+    elif a == 0 and b != 0 and c != 0:
+        x = (-1*c)/b
+        print({x})
+    #a,b,c = not 0, 0, not 0
+    elif a != 0 and b == 0 and c != 0:
+        x1 = (math.sqrt((-1*c)/a))
+        x2 = -1*(math.sqrt((-1*c)/a))
+        print(set((x1, x2)))
+    #a,b,c = not 0, not 0, 0
+    elif a != 0 and b != 0 and c == 0:
+        x1 = 0
+        x2 = (-1*b)/a
+        print(set((x1, x2)))
+    #a,b,c = 0,0,not 0
+    elif a == 0 and b == 0 and c != 0:
+        print({})
+    #a,b,c = not 0, 0, 0
+    elif a != 0 and b == 0 and c == 0:
+        print({0})
+    #a,b,c = 0, not 0, 0
+    elif a == 0 and b != 0 and c == 0:
+        print({0})
 else:
-    print(False)
+    print({})
 
+    
 
-#point г
-x = float(input('x'))
-y = float(input('y'))
-print((x**2)+(y**2)>4 and x<2 and x > 0 and y<2 and y>0)
-
-#point ж
-x = float(input('x'))
-y = float(input('y'))
-n = math.sqrt(2)
-if x < 0 and y > 0:
-    if y < 2-x**2:
-        print(True)
-elif y < 0 and x < 0:
-    if y > x and y < 2-x**2:
-        print(True)
-
-if x <= 0 and x > n*-1:
-    if y < 2-x**2 and y > x:
-        print(True)
-elif x > 0 and x < n:
-    if y < 2-x**2 and y > 0:
-        print(True)
-else:
-    print(False)
-
-#point e
-x = float(input('x'))
-y = float(input('y'))
-print(y>0 and x>0 and y<0.5 and y<math.sin((x*math.pi)/180))
 
 
 
