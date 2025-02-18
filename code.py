@@ -1,7 +1,12 @@
 #квадратное уравниение
 import math
+from code2 import spl
 
-a,b,c = list(map(int, input('Enter a, b, c with space: ').split(' ')))
+#ввод уравнения
+n = input('запишите уравнение в стандартном виде(ax^2+bx+c=0, если a, b или с равны 0 запишите их как 0):\n')
+
+#присваивание значений коэфициэнтов
+a,b,c = spl(n)
 
 D = (b**2)-(4*a*c)
 if D >= 0:
